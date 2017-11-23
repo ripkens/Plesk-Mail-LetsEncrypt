@@ -45,12 +45,11 @@ if(!file_exists(IP . "_" . MAIL_SUBDOMAIN))
     fclose($fh);
 }
 
-
-
 echo "\n\n";
+echo "Creating Certificate and assign it to Plesk Panel\n";
 shell_exec('/usr/local/psa/bin/extension --exec letsencrypt cli.php --secure-plesk -w "'.DEFAULT_IP_VHOST.'" -m "'.LEMAIL.'" -d ' . trim(file_get_contents(IP . "_" . MAIL_SUBDOMAIN)));
+echo "Rename Certificate\n";
 shell_exec('plesk bin certificate --update "Lets Encrypt certificate" -new-name "EMail"  -admin');
+echo "Assign Certificate to MailServer\n";
 shell_exec('plesk bin mailserver --set-certificate "EMail"');
-
-shell_exec('/usr/local/psa/bin/extension --exec letsencrypt cli.php --secure-plesk -w "'.DEFAULT_IP_VHOST.'" -m "'.LEMAIL.'" -d "'.HOSTNAME.'"');
-shell_exec('plesk bin certificate --update "Lets Encrypt certificate" -new-name "Plesk"  -admin');
+echo "DONE\n";
