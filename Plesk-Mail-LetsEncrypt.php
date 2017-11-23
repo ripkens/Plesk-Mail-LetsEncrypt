@@ -42,7 +42,7 @@ if(count($arr_mail) > 100)
 
 echo "\n\n";
 echo "Creating Certificate and assign it to Plesk Panel\n";
-shell_exec('/usr/local/psa/bin/extension --exec letsencrypt cli.php --secure-plesk -w "'.DEFAULT_IP_VHOST.'" -m "'.LEMAIL.'" -d ' . implode(' -d ', $arr_mail)));
+shell_exec('/usr/local/psa/bin/extension --exec letsencrypt cli.php --secure-plesk -w "'.DEFAULT_IP_VHOST.'" -m "'.LEMAIL.'" -d ' . implode(' -d ', $arr_mail));
 echo "Rename Certificate\n";
 shell_exec('plesk bin certificate --update "Lets Encrypt certificate" -new-name "EMail & Panel"  -admin');
 echo "Assign Certificate to MailServer\n";
