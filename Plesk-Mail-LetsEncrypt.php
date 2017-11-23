@@ -6,6 +6,7 @@ define('MYSQL_DB', 'psa');
 define('PLESK_ADMIN', 'admin');
 define('MAIL_SUBDOMAIN', 'mail');
 define('DEFAULT_IP_VHOST', '/var/www/vhosts/web.example.com/httpdocs');
+define('TEST', false); // Outputs Domains and DNS Results but does not create certificates
 
 ############################################################
 $password = trim(file_get_contents('/etc/psa/.psa.shadow'));
@@ -57,6 +58,12 @@ if(count($arr_mail) > 100)
 }
 
 echo "\n\n";
+
+if(TEST)
+{
+    die;
+}
+
 echo "Creating Certificate for ".count($arr_mail)." domains and assign it to Plesk Panel\n";
 shell_exec('/usr/local/psa/bin/extension --exec letsencrypt cli.php --secure-plesk -w "'.DEFAULT_IP_VHOST.'" -m "'.LEMAIL.'" -d ' . implode(' -d ', $arr_mail));
 echo "Rename Certificate\n";
