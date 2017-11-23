@@ -22,14 +22,25 @@ $max = mysqli_num_rows($res);
 $i = 1;
 while($row = mysqli_fetch_assoc($res))
 {
-    echo "($i / $max) | " . $row['name']."\n";
+    echo "($i / $max) | " . $row['name'];
     $data = dns_get_record(MAIL_SUBDOMAIN . '.' . $row['name'].'.', DNS_A);
+    if(count($data) == 0){echo " NO A RECORD FOR " . MAIL_SUBDOMAIN . "\n";}
+    $found = false;
     foreach($data as $record)
     {
         if($record['ip'] == IP)
         {
             $arr_mail[] = MAIL_SUBDOMAIN . '.' . $row['name'];
+            $found = true;
         }
+    }
+    if($found)
+    {
+        echo " OK\n";
+    }
+    else
+    {
+        echo " POINTING TO OTHER SERVER\n";
     }
     $i++;
 }
