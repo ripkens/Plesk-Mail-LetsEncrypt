@@ -20,15 +20,14 @@ echo "Fetching Domain DNS Records.\n";
 
 $max = mysqli_num_rows($res);
 $i = 1;
-echo " \033[0;37m";
+
 while($row = mysqli_fetch_assoc($res))
 {
     echo "($i / $max) | " . $row['name'];
     $data = dns_get_record(MAIL_SUBDOMAIN . '.' . $row['name'].'.', DNS_A);
     if(count($data) == 0)
     {
-        echo " \033[0;31mNO A RECORD FOR " . MAIL_SUBDOMAIN . "\n";
-        echo " \033[0;37m";
+        echo " \033[0;31mNO A RECORD FOR " . MAIL_SUBDOMAIN . "\033[0m\n";
         continue;
     }
     $found = false;
@@ -42,13 +41,11 @@ while($row = mysqli_fetch_assoc($res))
     }
     if($found)
     {
-        echo " \033[0;32OK\n";
-        echo " \033[0;37m";
+        echo " \033[0;32OK\033[0m\n";
     }
     else
     {
-        echo " \033[1;33mPOINTING TO OTHER SERVER\n";
-        echo " \033[0;37m";
+        echo " \033[1;33mPOINTING TO OTHER SERVER\033[0m\n";
     }
     $i++;
 }
