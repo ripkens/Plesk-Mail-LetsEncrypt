@@ -32,7 +32,9 @@ The Dokument root is probably '/var/www/vhosts/web.example.com/httpdocs'
 
 Download the script and copy it onto your server, its a php file which will be called via ssh
 
-###### 6. Configure the Script
+```wget https://raw.githubusercontent.com/ripkens/Plesk-Mail-LetsEncrypt/master/Plesk-Mail-LetsEncrypt.php```
+
+###### 6. Configure the Script !!!!!!THIS IS IS IMPORTANT!!!!!!
 
 Change the following defines at the top of the script:
 
