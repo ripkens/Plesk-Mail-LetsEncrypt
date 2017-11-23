@@ -23,7 +23,7 @@ $i = 1;
 while($row = mysqli_fetch_assoc($res))
 {
     echo "($i / $max) | " . $row['name']."\n";
-    $data = dns_get_record(MAIL_SUBDOMAIN . '.' . $row['name'], DNS_A);
+    $data = dns_get_record(MAIL_SUBDOMAIN . '.' . $row['name'].'.', DNS_A);
     foreach($data as $record)
     {
         if($record['ip'] == IP)
