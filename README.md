@@ -11,7 +11,10 @@ The Hostname is also included as main domain, so the panel is also secured with 
 If a customer wants to login to the Plesk Panel, he can use his mail domain SSL Secured.
 If you have a SSL certificate on the customers domain, he can use that as well.
 
-This only works if you have less than 100 Domains on you server configured
+This only works if you have less than 100 Domains on you server configured which also have an A Record pointing to the servers IP.
+Domains wich have no subdomain A Record are ignored!
+
+To have the script include your domain, you have to have a Record for this subdomain on our DNS Servers!
 
 # What the script does
 
