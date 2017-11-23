@@ -1,5 +1,11 @@
 <?php
-
+define('IP', '1.2.3.4');
+define('HOSTNAME', 'web.example.com');
+define('LEMAIL', 'admin@example.com');
+define('MYSQL_DB', 'psa');
+define('PLESK_ADMIN', 'admin');
+define('MAIL_SUBDOMAIN', 'mail');
+define('DEFAULT_IP_VHOST', '/var/www/vhosts/web.example.com/httpdocs')
 
 ############################################################
 $password = trim(file_get_contents('/etc/psa/.psa.shadow'));
