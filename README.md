@@ -8,7 +8,7 @@ Lets assume all your customers are using mail.mydomain.tld to connect to ther Ma
 This script installs ONE Certificate with all subdomains used for mail traffic and assigns it to the panel and the mail services.
 The Hostname is included, so the panel is secured too.
 
-If a customer wants to login to the Plesk Panel, he can also use https://mail.mydomain.tld:8443 and it is SSL Secured.
+If a customer wants to login to the Plesk Panel, he can use his mail domain SSL Secured.
 If you have a SSL certificate on the customers domain, he can use that as well.
 
 This only works if you have less than 100 Domains on you server configured
