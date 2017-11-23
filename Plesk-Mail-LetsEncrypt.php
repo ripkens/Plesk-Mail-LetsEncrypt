@@ -27,7 +27,7 @@ while($row = mysqli_fetch_assoc($res))
     $data = dns_get_record(MAIL_SUBDOMAIN . '.' . $row['name'].'.', DNS_A);
     if(count($data) == 0)
     {
-        echo " \033[0;31mNO A RECORD FOR " . MAIL_SUBDOMAIN . "\033[0m\n";
+        echo " \033[0;31mNO A RECORD FOR\033[0m " . MAIL_SUBDOMAIN . "\n";
         continue;
     }
     $found = false;
