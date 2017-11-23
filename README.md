@@ -6,7 +6,7 @@ Plesk does not Support SNI on Mailservices. Therefor we need ONE SSL Certificate
 Lets assume all your customers are using mail.mydomain.tld to connect to ther Mailboxes. SSL is almost impossible on Apple devices and most clients.
 
 This script installs ONE Certificate with all subdomains used for mail traffic and assigns it to the panel and the mail services.
-The Hostname is included so the panel is secured to.
+The Hostname is included, so the panel is secured too.
 
 If a customer wnats to login to the Plesk Panel, he can use https://mail.mydomain.tld:8443 and it is SSL Secured.
 
