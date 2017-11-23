@@ -14,27 +14,27 @@ All domain certificates exisiting on the server are NOT touched, so you dont hav
 
 ## Get started
 
-### 1. Install Lets Encrypt extension
+###### 1. Install Lets Encrypt extension
 
 Use the Panel Extension Manager to install the Lets Encrypt extension
 
-### 2. Create subscription for your Hostname
+###### 2. Create subscription for your Hostname
 
 If your Hostname is 'web.example.com', create a subscription with the name 'web.example.com'.
 
-### 3. Set default Subscription for IP
+###### 3. Set default Subscription for IP
 
 In Plesk Panel, configure your IP to use the created subscription as default website for unknown domains
 
-### 4. Find the document root on the server via SSH
+###### 4. Find the document root on the server via SSH
 
 The Dokument root is probably '/var/www/vhosts/web.example.com/httpdocs'
 
-### 5. Download the Script
+###### 5. Download the Script
 
 Download the script and copy it onto your server, its a php file which will be called via ssh
 
-### 6. Configure the Script
+###### 6. Configure the Script
 
 Change the following defines at the top of the script:
 
@@ -56,7 +56,7 @@ define('DEFAULT_IP_VHOST', '/var/www/vhosts/web.example.com/httpdocs')
 - MAIL_SUBDOMAIN = The subdomain used for client connections
 - DEFAULT_IP_VHOST = The document root of the default subscription for that IP
 
-### 7. Run the Script
+###### 7. Run the Script
 
 in the directory where the script resides, call it ...
 
