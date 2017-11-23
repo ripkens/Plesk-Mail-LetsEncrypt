@@ -21,23 +21,34 @@ When all domains are checked, the script uses the Lets Encrypt extension to gene
 
 All domain certificates exisiting on the server are NOT touched, so you dont have to worry breaking anything.
 
+# Which Servers are supported
+
+All Linux based Plesk Servers Version >= 12.5 with installed Lets Encrypt extension
+
 ## Get started
 
 ###### 1. Install Lets Encrypt extension
 
 Use the Panel Extension Manager to install the Lets Encrypt extension
 
+More Info: [Plesk Extension Lets Encrypt](https://www.plesk.com/extensions/letsencrypt/)
+
 ###### 2. Create subscription for your Hostname
 
 If your Hostname is 'web.example.com', create a subscription with the name 'web.example.com'.
+
+More Info: [Create Subscriptions](https://docs.plesk.com/en-US/onyx/administrator-guide/customers-and-resellers/hosting-plans-and-subscriptions/managing-subscriptions.65125/)
 
 ###### 3. Set default Subscription for IP
 
 In Plesk Panel, configure your IP to use the created subscription as default website for unknown domains
 
+More Info: [Assign the default website for an IP address](https://docs.plesk.com/en-US/onyx/administrator-guide/server-administration/ip-addresses-management.59410/)
+
 ###### 4. Find the document root on the server via SSH
 
 The Dokument root is probably '/var/www/vhosts/web.example.com/httpdocs'
+Change web.example.com with your hostname.
 
 ###### 5. Download the Script
 
