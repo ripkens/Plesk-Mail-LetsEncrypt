@@ -58,7 +58,8 @@ define('DEFAULT_IP_VHOST', '/var/www/vhosts/web.example.com/httpdocs')
 
 ###### 7. Run the Script
 
-in the directory where the script resides, call it ...
+Make sure you have completed all steps above!!!!!!!
+In the directory where the script resides, call it ...
 
 ```
 php Plesk-Mail-LetsEncrypt.php
