@@ -18,12 +18,15 @@ To have the script include your domain, you have to have a Record for this subdo
 
 # What the script does
 
-The script fetches all domains configured on the server and then checks the DNS Records for the mail subdomain.
-If the subdomain points to your IP with an A Record, the domain is included in the certificate process
+The script reads all domains from the psa database which are configured on the server and then checks the DNS Records for the configured subdomain.
 
-When all domains are checked, the script uses the Lets Encrypt extension to generate a certificate for ALL mail domains on the server  pointing to the server IP with an A Record and assigns it to the mailserver.
+```define('MAIL_SUBDOMAIN', 'mail');```
 
-All domain certificates exisiting on the server are NOT touched, so you dont have to worry breaking anything.
+If the subdomain points to your IP with an A Record, the domain is included in the certificate process. The script shows a colored output which makes it easy to see which domains are included, which have no A Record, or which are ponting to other servers.
+
+When all domains are checked, the script uses the Lets Encrypt extension to generate a certificate for ALL mail domains on the server  which are pointing to the server IP with an A Record and assigns the certificate to the mailserver.
+
+All domain certificates exisiting on the server are NOT touched, so you dont have to worry breaking anything on domain settings.
 
 # Which Servers are supported
 
