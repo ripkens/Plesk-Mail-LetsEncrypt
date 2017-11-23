@@ -1,12 +1,12 @@
 # Plesk-Mail-LetsEncrypt
 Script to Secure Plesk Panel and mail.&lt;domain.tld> on Mail Services
 
-Plesk does not Support SNI on Mailservices. Therefor we need ONE SSL Certificate which contains ALL possible subdomains used for client connections.
+Plesk does not Support SNI on Mailservices. Therefore we need ONE SSL Certificate which contains ALL possible subdomains used for client connections. (In this example, we use 'mail' as the subdomains all clients use for connections.)
 
-Lets assume all your customers are using mail.mydomain.tld to connect to ther Mailboxes. SSL is almost impossible on Apple devices and most clients.
+Lets assume all your customers are using mail.customerdomain.tld to connect to Mailboxes. SSL is almost impossible on Apple devices and most clients because the SSL certificate ist probably only valid for the hostname assigned to the maschine.
 
 This script installs ONE Certificate with all subdomains used for mail traffic and assigns it to the panel and the mail services.
-The Hostname is included, so the panel is secured too.
+The Hostname is also included as main domain, so the panel is also secured with this certificate.
 
 If a customer wants to login to the Plesk Panel, he can use his mail domain SSL Secured.
 If you have a SSL certificate on the customers domain, he can use that as well.
@@ -87,3 +87,11 @@ In the directory where the script resides, call it ...
 ```
 php Plesk-Mail-LetsEncrypt.php
 ```
+
+###### 7. Check the results
+
+If the certificate is assigned to the mailservices but not to the panel, you can do that manually.
+If you rerun the script later, you have to rename the certificate "EMail & Panel" to something else or you will receive an error and the certificates name will be 'Lets Encrypt certificate' which is uninformant and useless (you can rename it though).
+
+You can also set the new certificate as standard certificate and remove all other certificates.
+Remember: Domain certificates are UNTOUCHED and still needs to be created and assigned manually!
