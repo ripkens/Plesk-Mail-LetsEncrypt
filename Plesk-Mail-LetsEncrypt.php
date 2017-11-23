@@ -24,7 +24,11 @@ while($row = mysqli_fetch_assoc($res))
 {
     echo "($i / $max) | " . $row['name'];
     $data = dns_get_record(MAIL_SUBDOMAIN . '.' . $row['name'].'.', DNS_A);
-    if(count($data) == 0){echo " NO A RECORD FOR " . MAIL_SUBDOMAIN . "\n";}
+    if(count($data) == 0)
+    {
+        echo " NO A RECORD FOR " . MAIL_SUBDOMAIN . "\n";
+        continue;
+    }
     $found = false;
     foreach($data as $record)
     {
