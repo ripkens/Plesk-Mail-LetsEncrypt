@@ -9,18 +9,18 @@ define('DEFAULT_IP_VHOST', '/var/www/vhosts/web.example.com/httpdocs');
 
 ############################################################
 $password = trim(file_get_contents('/etc/psa/.psa.shadow'));
-$db = mysql_connect('localhost', PLESK_ADMIN, "$password") or die("\nUsername or password incorrect!\n\n");
-mysql_select_db('psa');
+$db = mysqli_connect('localhost', PLESK_ADMIN, "$password") or die("\nUsername or password incorrect!\n\n");
+mysqli_select_db($db, 'psa');
 
-$res = mysql_query("SELECT name from domains where name != '".HOSTNAME."' order by name ASC");
+$res = mysqli_query($db, "SELECT name from domains where name != '".HOSTNAME."' order by name ASC");
 
 $arr_mail = array(HOSTNAME);
 
 echo "Fetching Domain DNS Records.\n";
 
-$max = mysql_num_rows($res);
+$max = mysqli_num_rows($res);
 $i = 1;
-while($row = mysql_fetch_assoc($res))
+while($row = mysqli_fetch_assoc($res))
 {
     echo "($i / $max) | " . $row['name']."\n";
     if(!file_exists(IP . "_" . MAIL_SUBDOMAIN))
