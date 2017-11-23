@@ -6,9 +6,7 @@ Script to Secure Plesk Panel and mail.&lt;domain.tld> on Mail Services
 The script fetches all domains configured on the server and then checks the DNS Records for the mail subdomain.
 If the subdomain points to your IP with an A Record, the domain is included in the certificate process
 
-When all domains are checked, the script uses the Lets Encrypt extension to generate a certificate for ALL mail domains on the server and assigns it to the mailserver.
-
-Then it creates a certificate for the hostname and assigns it to the plesk panel.
+When all domains are checked, the script uses the Lets Encrypt extension to generate a certificate for ALL mail domains on the server  pointing to the server IP with an A Record and assigns it to the mailserver.
 
 All domain certificates exisiting on the server are NOT touched, so you dont have to worry breaking anything.
 
